@@ -3,19 +3,20 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public Player player;
+    private Player player;
+    private Spawner spawner;
 
     public Text scoreText;
     public GameObject playButton;
     public GameObject gameOver;
-
-    private int score;
+    public int score { get; private set; }
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
 
-
+        player = FindObjectOfType<Player>();
+        spawner = FindObjectOfType<Spawner>();
 
         Pause();
     }
@@ -39,18 +40,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Pause()
-    {
-        Time.timeScale = 0f;
-        player.enabled = false;
-    }
-
     public void GameOver()
     {
         playButton.SetActive(true);
         gameOver.SetActive(true);
 
         Pause();
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+        player.enabled = false;
     }
 
     public void IncreaseScore()
