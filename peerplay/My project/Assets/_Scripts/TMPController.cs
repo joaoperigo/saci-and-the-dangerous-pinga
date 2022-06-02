@@ -10,9 +10,9 @@ public class TMPController : MonoBehaviour
     public void ButtonPress()
     {
         myTextElement.text = "This is my new text";
-        myTextElement.textStyle = TMP_Style.NormalStyle;
-        myTextElement.fontStyle = FontStyles.Bold;
-        myTextElement.color = Color.red;
-        myTextElement.fontSize = 200f;
+        //myTextElement.textStyle = TMP_Style.NormalStyle;
+        //.fontStyle = FontStyles.Bold;
+        //.color = Color.red;
+        //myTextElement.fontSize = 200f;
     }
 }

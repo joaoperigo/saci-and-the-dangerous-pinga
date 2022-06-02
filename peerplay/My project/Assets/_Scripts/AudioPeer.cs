@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioPeer : MonoBehaviour
@@ -33,6 +34,7 @@ public class AudioPeer : MonoBehaviour
         AnalyzeSound();
     }
 
+    [SerializeField] private TextMeshProUGUI myTextElement;
     void AnalyzeSound()
     {
         GetComponent<AudioSource>().GetOutputData(_samples, 0); // fill array with samples
@@ -70,5 +72,6 @@ public class AudioPeer : MonoBehaviour
         //Debug.Log(floatToInt);
         // txt.text = PitchValue.ToString();
         //txtAudio.text = "Asd";
+        myTextElement.text = PitchValue.ToString();
     }
 }
