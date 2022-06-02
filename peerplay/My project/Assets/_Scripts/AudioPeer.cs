@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioPeer : MonoBehaviour
@@ -15,6 +16,10 @@ public class AudioPeer : MonoBehaviour
     float[] _samples;
     private float[] _spectrum;
     private float _fSample;
+
+    // int floatToInt;
+    //[SerializeField]
+    //public Text txtAudio;
 
     void Start()
     {
@@ -60,6 +65,10 @@ public class AudioPeer : MonoBehaviour
             freqN += 0.5f * (dR * dR - dL * dL);
         }
         PitchValue = freqN * (_fSample / 2) / QSamples; // convert index to frequency
-        Debug.Log(PitchValue);
+        //Debug.Log(PitchValue);
+        //floatToInt = (int)PitchValue;
+        //Debug.Log(floatToInt);
+        // txt.text = PitchValue.ToString();
+        //txtAudio.text = "Asd";
     }
 }
