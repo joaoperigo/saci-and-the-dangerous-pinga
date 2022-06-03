@@ -7,6 +7,7 @@ public class AudioLoudnessDetection : MonoBehaviour
 {
     public int sampleWindow = 128;
     private AudioClip microphoneClip;
+
     // Start is called before the first frame update
     void Start()
     {

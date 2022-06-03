@@ -123,7 +123,6 @@ public class MicrophoneInput : MonoBehaviour
 		fundamentalFrequency = i * audioSampleRate / samples;
 
 		Debug.Log("Frequency " + frequency);
-
 		frequency = fundamentalFrequency;
 
 		//Debug.Log("Frequency " + fundamentalFrequency);

@@ -1,10 +1,11 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic; // So we can use List<>
 using TMPro;
 
 [RequireComponent(typeof(AudioSource))]
-public class HertzFromAudio : MonoBehaviour
+public class GetHertzFromAudio : MonoBehaviour
 {
     public float RmsValue;
     public float DbValue;
@@ -22,11 +23,56 @@ public class HertzFromAudio : MonoBehaviour
     //[SerializeField]
     //public Text txtAudio;
 
+    public string microphone;
+    private AudioSource audioSource;
+    public int audioSampleRate = 44100;
+    private List<string> options = new List<string>();
+
     void Start()
     {
         _samples = new float[QSamples];
         _spectrum = new float[QSamples];
         _fSample = AudioSettings.outputSampleRate;
+
+        audioSource = GetComponent<AudioSource>();
+        foreach (string device in Microphone.devices)
+        {
+            if (microphone == null)
+            {
+                //set default mic to first mic found.
+                microphone = device;
+            }
+            options.Add(device);
+        }
+        UpdateMicrophone();
+    }
+
+    void UpdateMicrophone()
+    {
+        audioSource.Stop();
+        //Start recording to audioclip from the mic
+        audioSource.clip = Microphone.Start(microphone, true, 10, audioSampleRate);
+        audioSource.loop = true;
+        // Mute the sound with an Audio Mixer group becuase we don't want the player to hear it
+        Debug.Log(Microphone.IsRecording(microphone).ToString());
+
+        if (Microphone.IsRecording(microphone))
+        { //check that the mic is recording, otherwise you'll get stuck in an infinite loop waiting for it to start
+            while (!(Microphone.GetPosition(microphone) > 0))
+            {
+            } // Wait until the recording has started. 
+
+            Debug.Log("recording started with " + microphone);
+
+            // Start playing the audio source
+            audioSource.Play();
+        }
+        else
+        {
+            //microphone doesn't work for some reason
+
+            Debug.Log(microphone + " doesn't work!");
+        }
     }
 
     void Update()
