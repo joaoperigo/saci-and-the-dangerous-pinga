@@ -66,6 +66,7 @@ public class GetHertzFromAudio : MonoBehaviour
 
             // Start playing the audio source
             audioSource.Play();
+            // audioSource.volume = 0.001f;
         }
         else
         {

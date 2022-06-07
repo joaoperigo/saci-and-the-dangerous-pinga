@@ -153,7 +153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47ddc1f577caab4184e72e9294d16eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sampleWindow: 128
+  RmsValue: 0
+  DbValue: 0
+  PitchValue: 0
+  microphone: 
+  audioSampleRate: 44100
+  myTextElement: {fileID: 2083195907}
 --- !u!82 &241778552
 AudioSource:
   m_ObjectHideFlags: 0
@@ -163,7 +168,7 @@ AudioSource:
   m_GameObject: {fileID: 241778550}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7397816606154805564, guid: ae774cb8c9f159142a064ded35793005, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -538,7 +543,6 @@ GameObject:
   - component: {fileID: 2083195906}
   - component: {fileID: 2083195908}
   - component: {fileID: 2083195907}
-  - component: {fileID: 2083195909}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -663,23 +667,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083195905}
   m_CullTransparentMesh: 1
---- !u!114 &2083195909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2083195905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92a1101c530739c47b2ac432e2146916, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source: {fileID: 0}
-  detector: {fileID: 241778551}
-  loudnessSensibility: 100
-  threshold: 0.1
-  myTextElement: {fileID: 0}
 --- !u!1 &2107817064
 GameObject:
   m_ObjectHideFlags: 0
